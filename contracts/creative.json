@@ -1,0 +1,31 @@
+{
+  "$schema": "./capability-contract.schema.json",
+  "id": "creative/v1",
+  "contract_version": "0.5.0",
+  "capability": "marketing.creative",
+  "purpose": "Define creative direction, asset requirements and creative QA for marketing deliverables, optionally using a triggered shared creative-generation capability.",
+  "inputs": [
+    "strategy/audience context",
+    "content/copy when applicable",
+    "brand/project overlays",
+    "target channel/format constraints"
+  ],
+  "outputs": [
+    "creative brief and/or creative assets/asset requirements with QA evidence"
+  ],
+  "gate": [
+    "Creative output matches objective, audience, brand and channel requirements; generated/edited assets retain provenance and editable workflow when required."
+  ],
+  "effect_classes": [
+    "none"
+  ],
+  "provider_plugin": {
+    "name": "woia-marketing-creative",
+    "skill": "marketing-creative",
+    "marketplace": "woia-marketplace-marketing"
+  },
+  "human_review_triggers": [
+    "public brand asset approval",
+    "material visual identity change"
+  ]
+}

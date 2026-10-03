@@ -1,0 +1,110 @@
+{
+  "schema": "dev.woia.department-capability-registry/v1",
+  "version": "0.5.0",
+  "department": "marketing",
+  "capabilities": [
+    {
+      "id": "marketing.strategy",
+      "contract": "marketing-strategy/v1",
+      "provider": {
+        "plugin": "woia-marketing-strategy",
+        "skill": "marketing-strategy",
+        "marketplace": "woia-marketplace-marketing"
+      },
+      "effects": [
+        "none"
+      ],
+      "typical_roles": [
+        "planner",
+        "executor",
+        "auditor"
+      ]
+    },
+    {
+      "id": "marketing.audience",
+      "contract": "audience/v1",
+      "provider": {
+        "plugin": "woia-marketing-audience",
+        "skill": "marketing-audience",
+        "marketplace": "woia-marketplace-marketing"
+      },
+      "effects": [
+        "read"
+      ],
+      "typical_roles": [
+        "planner",
+        "executor",
+        "auditor"
+      ]
+    },
+    {
+      "id": "marketing.content-copy",
+      "contract": "content-copy/v1",
+      "provider": {
+        "plugin": "woia-marketing-content-copy",
+        "skill": "marketing-content-copy",
+        "marketplace": "woia-marketplace-marketing"
+      },
+      "effects": [
+        "none"
+      ],
+      "typical_roles": [
+        "executor",
+        "auditor"
+      ]
+    },
+    {
+      "id": "marketing.creative",
+      "contract": "creative/v1",
+      "provider": {
+        "plugin": "woia-marketing-creative",
+        "skill": "marketing-creative",
+        "marketplace": "woia-marketplace-marketing"
+      },
+      "effects": [
+        "none"
+      ],
+      "typical_roles": [
+        "planner",
+        "executor",
+        "auditor"
+      ]
+    },
+    {
+      "id": "marketing.channel-execution",
+      "contract": "channel-execution/v1",
+      "provider": {
+        "plugin": "woia-marketing-channel-execution",
+        "skill": "marketing-channel-execution",
+        "marketplace": "woia-marketplace-marketing"
+      },
+      "effects": [
+        "external-write",
+        "communication",
+        "publication",
+        "financial"
+      ],
+      "typical_roles": [
+        "executor",
+        "auditor"
+      ]
+    },
+    {
+      "id": "marketing.analytics",
+      "contract": "analytics/v1",
+      "provider": {
+        "plugin": "woia-marketing-analytics",
+        "skill": "marketing-analytics",
+        "marketplace": "woia-marketplace-marketing"
+      },
+      "effects": [
+        "read"
+      ],
+      "typical_roles": [
+        "planner",
+        "executor",
+        "auditor"
+      ]
+    }
+  ]
+}

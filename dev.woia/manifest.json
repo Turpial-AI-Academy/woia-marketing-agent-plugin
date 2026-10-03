@@ -1,0 +1,29 @@
+{
+  "schema": "dev.woia.department-orchestrator/v1",
+  "version": "0.5.0",
+  "authoring_profile": "thin",
+  "department": "marketing",
+  "execution_model": "opea-h",
+  "requires_plugins": [
+    {
+      "name": "woia-core",
+      "minimum_version": "0.5.0"
+    }
+  ],
+  "capability_registry": "registry/capabilities.json",
+  "routing_registry": "registry/routing.json",
+  "shared_resources": [
+    {
+      "plugin": "woia-customer-data",
+      "usage": "conditional",
+      "reason": "Use only when the Task legitimately needs shared customer/lead records."
+    }
+  ],
+  "auxiliaries": [
+    {
+      "plugin": "woia-comfyui-local",
+      "usage": "triggered",
+      "reason": "Use only for requested/generated/edited media or editable ComfyUI workflow evidence."
+    }
+  ]
+}

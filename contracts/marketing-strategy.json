@@ -1,0 +1,31 @@
+{
+  "$schema": "./capability-contract.schema.json",
+  "id": "marketing-strategy/v1",
+  "contract_version": "0.5.0",
+  "capability": "marketing.strategy",
+  "purpose": "Define the minimum evidence-backed marketing strategy needed for the Task: objective, offer/positioning, channel approach, constraints, success criteria and strategic tradeoffs.",
+  "inputs": [
+    "business objective",
+    "offer/product/service context",
+    "existing brand/market evidence when available",
+    "budget/timing constraints when relevant"
+  ],
+  "outputs": [
+    "marketing strategy artifact or structured strategy decision"
+  ],
+  "gate": [
+    "Objective, audience/offer assumptions, channel approach, constraints and success criteria are explicit enough for downstream execution without invented business facts."
+  ],
+  "effect_classes": [
+    "none"
+  ],
+  "provider_plugin": {
+    "name": "woia-marketing-strategy",
+    "skill": "marketing-strategy",
+    "marketplace": "woia-marketplace-marketing"
+  },
+  "human_review_triggers": [
+    "material brand/positioning commitment when organization policy requires approval",
+    "new paid budget commitment"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "./capability-contract.schema.json",
+  "id": "audience/v1",
+  "contract_version": "0.5.0",
+  "capability": "marketing.audience",
+  "purpose": "Establish audience/segment evidence and targeting assumptions using authorized research and shared customer-data references when applicable.",
+  "inputs": [
+    "strategy/objective",
+    "market/customer evidence",
+    "authorized shared customer/lead references when applicable"
+  ],
+  "outputs": [
+    "audience/segment evidence and targeting assumptions"
+  ],
+  "gate": [
+    "Audience definition is evidence-backed, distinguishes observation from inference, and does not exceed authorized customer-data access."
+  ],
+  "effect_classes": [
+    "read"
+  ],
+  "provider_plugin": {
+    "name": "woia-marketing-audience",
+    "skill": "marketing-audience",
+    "marketplace": "woia-marketplace-marketing"
+  },
+  "human_review_triggers": [
+    "use of restricted customer data",
+    "sensitive segmentation or policy-required targeting review"
+  ]
+}

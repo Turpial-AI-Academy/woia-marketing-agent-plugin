@@ -1,0 +1,29 @@
+{
+  "$schema": "./capability-contract.schema.json",
+  "id": "analytics/v1",
+  "contract_version": "0.5.0",
+  "capability": "marketing.analytics",
+  "purpose": "Measure and explain marketing performance using authorized data, explicit metric definitions, attribution limitations and evidence-backed learnings.",
+  "inputs": [
+    "campaign/channel identifiers",
+    "measurement objective/KPIs",
+    "authorized analytics/source data"
+  ],
+  "outputs": [
+    "analysis, metric evidence, limitations and recommended next actions"
+  ],
+  "gate": [
+    "Metrics are tied to source/time range/population, calculations are reproducible where deterministic, and conclusions distinguish observed facts from attribution/inference."
+  ],
+  "effect_classes": [
+    "read"
+  ],
+  "provider_plugin": {
+    "name": "woia-marketing-analytics",
+    "skill": "marketing-analytics",
+    "marketplace": "woia-marketplace-marketing"
+  },
+  "human_review_triggers": [
+    "none by default; policy may require review for executive/public reporting"
+  ]
+}

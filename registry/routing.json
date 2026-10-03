@@ -1,0 +1,94 @@
+{
+  "schema": "dev.woia.department-routing/v1",
+  "version": "0.5.0",
+  "department": "marketing",
+  "rules": [
+    {
+      "key": "campaign-strategy",
+      "when": "objective/offer/positioning/channel/KPI decisions materially affect execution",
+      "capabilities": [
+        "marketing.strategy"
+      ],
+      "opea_roles": [
+        "planning",
+        "audit"
+      ]
+    },
+    {
+      "key": "audience-evidence",
+      "when": "target audience/segment/customer evidence is required",
+      "capabilities": [
+        "marketing.audience"
+      ],
+      "opea_roles": [
+        "planning",
+        "execution",
+        "audit"
+      ]
+    },
+    {
+      "key": "content-production",
+      "when": "copy/content must be drafted or adapted",
+      "capabilities": [
+        "marketing.content-copy"
+      ],
+      "opea_roles": [
+        "execution",
+        "audit"
+      ]
+    },
+    {
+      "key": "creative-production",
+      "when": "creative brief/assets/creative QA are required",
+      "capabilities": [
+        "marketing.creative"
+      ],
+      "opea_roles": [
+        "planning",
+        "execution",
+        "audit"
+      ]
+    },
+    {
+      "key": "channel-effect",
+      "when": "content/campaign must be published, activated, distributed, or configured externally",
+      "capabilities": [
+        "marketing.channel-execution"
+      ],
+      "opea_roles": [
+        "execution",
+        "audit",
+        "human-review"
+      ]
+    },
+    {
+      "key": "measurement-learning",
+      "when": "metrics/performance/attribution/learning are requested",
+      "capabilities": [
+        "marketing.analytics"
+      ],
+      "opea_roles": [
+        "planning",
+        "execution",
+        "audit"
+      ]
+    }
+  ],
+  "shared_resources": [
+    {
+      "plugin": "woia-customer-data",
+      "trigger": "Task needs authorized customer/lead/segment data from the organization source of truth",
+      "never_implies": [
+        "delete",
+        "bulk-export",
+        "contact",
+        "update"
+      ]
+    },
+    {
+      "plugin": "woia-comfyui-local",
+      "trigger": "Task explicitly needs generated/edited media, editable workflow, or required media fixture",
+      "provider_replacement": false
+    }
+  ]
+}

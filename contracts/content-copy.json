@@ -1,0 +1,31 @@
+{
+  "$schema": "./capability-contract.schema.json",
+  "id": "content-copy/v1",
+  "contract_version": "0.5.0",
+  "capability": "marketing.content-copy",
+  "purpose": "Create or adapt channel-ready marketing content/copy that follows approved strategy, audience, brand overlays and channel constraints.",
+  "inputs": [
+    "approved objective/strategy",
+    "audience context",
+    "brand/project overlays",
+    "channel constraints"
+  ],
+  "outputs": [
+    "content/copy deliverables with channel mapping"
+  ],
+  "gate": [
+    "Copy is traceable to the approved objective/audience, respects channel/brand constraints, contains no invented claims presented as facts, and is reviewable before external effect."
+  ],
+  "effect_classes": [
+    "none"
+  ],
+  "provider_plugin": {
+    "name": "woia-marketing-content-copy",
+    "skill": "marketing-content-copy",
+    "marketplace": "woia-marketplace-marketing"
+  },
+  "human_review_triggers": [
+    "regulated/public claims requiring organization approval",
+    "public release when policy requires approval"
+  ]
+}

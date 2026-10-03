@@ -1,0 +1,36 @@
+{
+  "$schema": "./capability-contract.schema.json",
+  "id": "channel-execution/v1",
+  "contract_version": "0.5.0",
+  "capability": "marketing.channel-execution",
+  "purpose": "Execute authorized marketing actions on real channels using available integrations while preserving exact targets, budgets, publication state, rollback/recovery and evidence.",
+  "inputs": [
+    "approved content/creative/configuration",
+    "target channel/account/campaign references",
+    "effective authority",
+    "budget/timing constraints"
+  ],
+  "outputs": [
+    "channel execution/publication/activation evidence and resulting identifiers/status"
+  ],
+  "gate": [
+    "The intended channel action was performed on the exact authorized target/configuration, consequential effects are confirmed or explicitly unknown, and recovery/rollback is known when applicable."
+  ],
+  "effect_classes": [
+    "external-write",
+    "communication",
+    "publication",
+    "financial"
+  ],
+  "provider_plugin": {
+    "name": "woia-marketing-channel-execution",
+    "skill": "marketing-channel-execution",
+    "marketplace": "woia-marketplace-marketing"
+  },
+  "human_review_triggers": [
+    "publication to external audience",
+    "paid spend/budget change",
+    "bulk communication",
+    "campaign activation/deactivation when policy requires approval"
+  ]
+}
