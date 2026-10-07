@@ -12,7 +12,7 @@ WOIA Core owns Task/runtime mechanics. This skill owns Marketing routing.
 
 1. Read `.woia/project.json` and current Task/TaskCell once.
 2. Confirm selected Marketing capabilities/effects still match current evidence.
-3. For the active OPEA-H role, choose provider responsibilities from registry/routing.json.
+3. Before delegation, classify the actual requested effect and run `scripts/route-work.mjs` with a separately resolved trusted host context. A BLOCKED result stops the Task; HANDOFF_REQUIRED delegates an owned contribution through Core to the indicated department. Never relabel a person/paid effect as a public or draft intent. Only PROVIDER_SELECTED continues to registry/routing.json.
 4. Ask woia-core project-runtime to establish exact provider runtime readiness; never duplicate provider installation logic here.
 5. Delegate provider-owned work to the exact custom role with Task scope, authority, effective snapshot, resource refs and acceptance/evidence requirements.
 6. Persist and validate dev.woia.execution-receipt/v1.
@@ -44,3 +44,9 @@ For channel execution, audit exact target/channel/configuration/effect evidence 
 For analytics, distinguish observed metrics from inference and document attribution/data limitations.
 
 Never mark a Marketing gate satisfied from a root summary alone.
+
+## W3 department ownership
+
+Require WOIA Core 0.5.3 or later for Tasks, accepted resource/source bindings and effect reconciliation. Marketing owns public, non-person, non-paid execution. Paid campaign/targeting/spend routes to Ads; external-person contact and appointment mutation route to Customer Service through Communications/Scheduling. Skills never dispatch those effects directly. Existing provider identities and proportional OPEA-H methodology remain stable.
+
+The routing helper consumes a separate trusted host context containing accepted Task/scope, effective Source Authority Map and competent accepted evidence references. The host must obtain that context independently of model/request input and validate its current bindings before delegation. The helper selects a provider or handoff; it does not grant authority, execute effects or implement a durable writer. Provider execution still requires exact authority, immutable version/evidence, idempotency and reconciliation-before-retry for UNKNOWN. CRM is an optional adapter, never identity/business-state master.

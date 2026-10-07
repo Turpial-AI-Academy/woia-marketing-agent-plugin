@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { routeMarketingWork } from '../skills/marketing-orchestration/scripts/route-work.mjs';
+const context = { department: 'marketing', task_ref: 'task:1', scope_ref: 'org:1', source_authority_map_ref: 'map:1', accepted_evidence_refs: ['evidence:1', 'content:1'] };
+const request = { task_ref: 'task:1', scope_ref: 'org:1', evidence_ref: 'evidence:1', observation_state: 'CONFIRMED', intent: 'public', recipient_kind: 'public-non-person', approved_content_ref: 'content:1' };
+test('approved public work selects Marketing provider without execution', () => assert.deepEqual(routeMarketingWork(request, context), { result: 'PROVIDER_SELECTED', owner: 'marketing', provider: 'woia-marketing-channel-execution', executed: false }));
+for (const intent of ['paid', 'person-contact', 'appointment-mutation']) test(intent + ' routes to competent department without executing', () => { const r = routeMarketingWork({ ...request, intent }, context); assert.equal(r.result, 'HANDOFF_REQUIRED'); assert.equal(r.executed, false); assert.equal(r.owner, intent === 'paid' ? 'ads' : 'customer-service'); });
+for (const intent of ['strategy', 'audience', 'copy', 'creative', 'analytics']) test(intent + ' retains existing provider identity', () => assert.equal(routeMarketingWork({ ...request, intent }, context).result, 'PROVIDER_SELECTED'));
+for (const [label, patch] of [['unknown', { observation_state: 'UNKNOWN' }], ['stale', { observation_state: 'STALE' }], ['wrong scope', { scope_ref: 'org:2' }], ['unaccepted evidence', { evidence_ref: 'model:guess' }], ['person disguised as public', { recipient_kind: 'person' }], ['unaccepted content', { approved_content_ref: 'content:guess' }], ['unsupported', { intent: 'payment' }]]) test(label + ' fails closed', () => assert.equal(routeMarketingWork({ ...request, ...patch }, context).result, 'BLOCKED'));
+test('missing source authority context fails closed', () => assert.equal(routeMarketingWork(request, { ...context, source_authority_map_ref: null }).result, 'BLOCKED'));
+test('untrusted request cannot supply its own competent acceptance', () => assert.equal(routeMarketingWork({ ...request, accepted_evidence_refs: ['model:guess'], evidence_ref: 'model:guess' }, context).result, 'BLOCKED'));
