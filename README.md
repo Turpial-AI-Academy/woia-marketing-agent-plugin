@@ -1,6 +1,6 @@
 # WOIA Marketing
 
-WOIA Marketing is the Marketing department orchestrator for WOIA v0.5.0.
+WOIA Marketing is the Marketing department orchestrator for WOIA v0.5.6.
 
 It does not impose a rigid phase sequence. Non-software persistent work is executed through WOIA Core's proportional OPEA-H profiles:
 
@@ -47,8 +47,11 @@ Publication, paid activation, audience/customer mutation and external communicat
 
 Project-specific brand voice, approved phrases, campaign conventions and local workflows belong in WOIA overlays; they never patch upstream Marketing plugins.
 
-## W3 department ownership
-
-Require WOIA Core 0.5.3 or later for Tasks, accepted resource/source bindings and effect reconciliation. Marketing owns public, non-person, non-paid execution. Paid campaign/targeting/spend routes to Ads; external-person contact and appointment mutation route to Customer Service through Communications/Scheduling. Skills never dispatch those effects directly. Existing provider identities and proportional OPEA-H methodology remain stable.
+## Operation
+Require WOIA Core 0.5.6 or later for Tasks, accepted resource/source bindings and effect reconciliation. Marketing owns public, non-person, non-paid execution. Paid campaign/targeting/spend routes to Ads; external-person contact and appointment mutation route to Customer Service through Communications/Scheduling. Skills never dispatch those effects directly. Existing provider identities and proportional OPEA-H methodology remain stable.
 
 The routing helper consumes a separate trusted host context containing accepted Task/scope, effective Source Authority Map and competent accepted evidence references. The host must obtain that context independently of model/request input and validate its current bindings before delegation. The helper selects a provider or handoff; it does not grant authority, execute effects or implement a durable writer. Provider execution still requires exact authority, immutable version/evidence, idempotency and reconciliation-before-retry for UNKNOWN. CRM is an optional adapter, never identity/business-state master.
+
+## Maintenance
+
+Edit only this canonical repository. Keep `plugin.json`, `package.json` and `dev.woia/manifest.json` versions aligned. From the canonical WOIA Ecosystem repository, run `mise run plugin:certify-thin --repo <absolute-plugin-repository>`, then use its release preparation/publication tasks. Install and update consumers from immutable published artifacts; keep Project personalization in overlays.
