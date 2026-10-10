@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "woia-marketing",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "WOIA Marketing department orchestrator: OPEA-H routing across strategy, audience, content/copy, creative, channel execution, analytics, shared customer data, and evidence-triggered creative tooling.",
   "author": {
     "name": "Turpial AI Academy",

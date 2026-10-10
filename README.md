@@ -1,6 +1,6 @@
 # WOIA Marketing
 
-WOIA Marketing is the Marketing department orchestrator for WOIA v0.5.7.
+WOIA Marketing is the Marketing department orchestrator for WOIA v0.5.8.
 
 It does not impose a rigid phase sequence. Non-software persistent work is executed through WOIA Core's proportional OPEA-H profiles:
 
@@ -48,7 +48,9 @@ Publication, paid activation, audience/customer mutation and external communicat
 Project-specific brand voice, approved phrases, campaign conventions and local workflows belong in WOIA overlays; they never patch upstream Marketing plugins.
 
 ## Operation
-Require WOIA Core 0.5.7 or later for Tasks, accepted resource/source bindings and effect reconciliation. Marketing owns public, non-person, non-paid execution. Paid campaign/targeting/spend routes to Ads; external-person contact and appointment mutation route to Customer Service through Communications/Scheduling. Skills never dispatch those effects directly. Existing provider identities and proportional OPEA-H methodology remain stable.
+Require WOIA Core 0.5.8 or later for Tasks, accepted resource/source bindings, admitted specialization context and effect reconciliation. Marketing owns public, non-person, non-paid execution. Paid campaign/targeting/spend routes to Ads; external-person contact and appointment mutation route to Customer Service through Communications/Scheduling. Skills never dispatch those effects directly. Existing provider identities and proportional OPEA-H methodology remain stable.
+
+Generic [methodology slots](skills/marketing-orchestration/references/specialization-slots.md) permit admitted deltas to narrow source, content, channel policy and outcome requirements. The exact delta is selected by the Core snapshot. Requests cannot choose executable modules or assert a specialization binding.
 
 The routing helper consumes a separate trusted host context containing accepted Task/scope, effective Source Authority Map and competent accepted evidence references. The host must obtain that context independently of model/request input and validate its current bindings before delegation. The helper selects a provider or handoff; it does not grant authority, execute effects or implement a durable writer. Provider execution still requires exact authority, immutable version/evidence, idempotency and reconciliation-before-retry for UNKNOWN. CRM is an optional adapter, never identity/business-state master.
 

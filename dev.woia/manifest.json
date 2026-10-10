@@ -1,17 +1,24 @@
 {
   "schema": "dev.woia.department-orchestrator/v1",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "authoring_profile": "thin",
   "department": "marketing",
   "execution_model": "opea-h",
   "requires_plugins": [
     {
       "name": "woia-core",
-      "minimum_version": "0.5.7"
+      "minimum_version": "0.5.8"
     }
   ],
   "capability_registry": "registry/capabilities.json",
   "routing_registry": "registry/routing.json",
+  "methodology_slots": [
+    "source-resolution",
+    "content-domain-validation",
+    "channel-effect-policy",
+    "outcome-evidence"
+  ],
+  "methodology_evaluator": "skills/marketing-orchestration/scripts/evaluate-methodology.mjs",
   "shared_resources": [
     {
       "plugin": "woia-customer-data",

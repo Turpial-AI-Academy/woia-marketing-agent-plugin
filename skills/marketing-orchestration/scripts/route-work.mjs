@@ -1,9 +1,11 @@
+import { isDeepStrictEqual } from 'node:util';
+
 // Routing decision only. Core and the selected provider retain authority/effect execution.
 export function routeMarketingWork(request, acceptedContext) {
   const blocked = (reason) => ({ result: 'BLOCKED', reason });
   if (!request || !acceptedContext || acceptedContext.department !== 'marketing') return blocked('MARKETING_CONTEXT_REQUIRED');
   if (!acceptedContext.task_ref || !acceptedContext.scope_ref || !acceptedContext.source_authority_map_ref) return blocked('ACCEPTED_CONTEXT_REQUIRED');
-  if (request.task_ref !== acceptedContext.task_ref || request.scope_ref !== acceptedContext.scope_ref) return blocked('SCOPE_MISMATCH');
+  if (!isDeepStrictEqual(request.task_ref, acceptedContext.task_ref) || !isDeepStrictEqual(request.scope_ref, acceptedContext.scope_ref)) return blocked('SCOPE_MISMATCH');
   if (!Array.isArray(acceptedContext.accepted_evidence_refs) || !acceptedContext.accepted_evidence_refs.includes(request.evidence_ref)) return blocked('COMPETENT_ACCEPTANCE_REQUIRED');
   if (request.observation_state !== 'CONFIRMED') return blocked('UNKNOWN_REQUIRES_RECONCILIATION');
   if (request.intent === 'paid') return { result: 'HANDOFF_REQUIRED', owner: 'ads', provider: 'woia-ads-platforms', executed: false };
